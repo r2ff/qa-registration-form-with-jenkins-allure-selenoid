@@ -11,6 +11,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static helpers.Attach.getSessionId;
 
 public class TestBase {
     @BeforeAll
@@ -19,29 +20,27 @@ public class TestBase {
 
         Configuration.startMaximized = true;
 
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//
-//        capabilities.setCapability("enableVNC", true);
-//        capabilities.setCapability("enableVideo", true);
+        DesiredCapabilities capabilities = new DesiredCapabilities();
 
-//        Configuration.browserCapabilities = capabilities;
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+
+        Configuration.browserCapabilities = capabilities;
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
     }
 
     @AfterEach
     public void tearDown() {
-//        String sessionId = getSessionId();
+        String sessionId = getSessionId();
 
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
         closeWebDriver();
 
-//        Attach.addVideo(sessionId);
+        Attach.addVideo(sessionId);
     }
 
-//    public static String getSessionId(){
-//        return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
-//    }
+
 
 }
