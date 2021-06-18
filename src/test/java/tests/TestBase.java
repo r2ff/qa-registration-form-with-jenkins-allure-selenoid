@@ -14,7 +14,7 @@ public class TestBase {
     }
 
     @AfterEach
-    static  void tearDown() {
+    void tearDown() {
         closeWebDriver();
     }
 }
