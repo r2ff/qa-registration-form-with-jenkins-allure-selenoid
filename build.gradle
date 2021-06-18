@@ -28,13 +28,13 @@ dependencies {
             "com.github.javafaker:javafaker:1.0.2",
 
             "org.junit.jupiter:junit-jupiter-api:$junitVersion")
-    testRuntimeOnly(
-            "org.junit.jupiter:junit-jupiter-engine:$junitVersion",
-            "org.slf4j:slf4j-simple:1.7.30")
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 tasks.withType(Test) {
