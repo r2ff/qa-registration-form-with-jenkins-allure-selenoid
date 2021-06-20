@@ -12,6 +12,7 @@
 
 # Properties files
 *.properties
+!Credentials.properties
 
 # Package Files #
 *.jar
