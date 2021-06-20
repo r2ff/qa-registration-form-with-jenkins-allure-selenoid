@@ -2,6 +2,7 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.Credentials;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -26,7 +27,8 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);
 
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = "https://user1:1234@" + System.getProperty("url") + "/wd/hub/";
+
+        Configuration.remote = "https://"+ Credentials.cc.login() + ":" + Credentials.cc.password() + "@" + System.getProperty("url") + "/wd/hub/";
     }
 
     @AfterEach
