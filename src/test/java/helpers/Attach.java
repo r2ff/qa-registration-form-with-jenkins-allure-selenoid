@@ -20,7 +20,7 @@ import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
     @Attachment(value = "{attachName}", type = "text/plain")
-    public static String attachAsText(String attachName, String message) {
+    public  static String attachAsText(String attachName, String message) {
         return message;
     }
 
@@ -67,9 +67,9 @@ public class Attach {
             Allure.addAttachment("Video", "video/mp4", videoInputStream, "mp4");
         }
     }
-
+    //https://selenoid.autotests.cloud/video/
     public static URL getVideoUrl(String sessionId) {
-        String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId + ".mp4";
+        String videoUrl = "https://" + System.getProperty("url") + "/video/" + sessionId + ".mp4";
 
         try {
             return new URL(videoUrl);
