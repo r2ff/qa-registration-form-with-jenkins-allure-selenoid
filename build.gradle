@@ -28,8 +28,13 @@ dependencies {
             "com.github.javafaker:javafaker:1.0.2",
             "org.aspectj:aspectjweaver:1.9.6",
             "org.aeonbits.owner:owner:1.0.12",
-            "org.junit.jupiter:junit-jupiter-api:$junitVersion")
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+            "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    )
+    testRuntimeOnly (
+            "org.junit.jupiter:junit-jupiter-engine:$junitVersion",
+            "org.slf4j:slf4j-simple:1.7.30",
+            "org.slf4j:slf4j-api:1.7.30"
+    )
 }
 
 tasks.withType(JavaCompile) {
